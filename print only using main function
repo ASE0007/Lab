@@ -1,0 +1,50 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+struct node{
+           int a;
+           float b;
+
+           struct node* next;
+           struct node* prev;
+
+};
+typedef struct node Node;
+int main(){
+
+Node *first=(Node*)malloc(sizeof(Node));
+Node *second=(Node*)malloc(sizeof(Node));
+Node *third=(Node*)malloc(sizeof(Node));
+Node *fourth=(Node*)malloc(sizeof(Node));
+
+first->a=10;
+first->b=10.5;
+first->next=second;
+first->prev=NULL;
+
+
+second->a=20;
+second->b=20.5;
+second->next=third;
+second->prev=NULL;
+
+fourth->a=50;
+fourth->b=50.5;
+fourth->next=third;
+fourth->prev=first;
+
+
+third->a=30;
+third->b=30.5;
+third->next= NULL  ;
+third->prev=second;
+
+
+
+Node *ptr=first;
+while(ptr!=NULL){
+
+    ptr=ptr->next;
+    printf("%d %f\n",ptr->a,ptr->b);
+}
+}
